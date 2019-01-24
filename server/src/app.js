@@ -9,7 +9,7 @@ const app = express();
 // Connect to database
 mongoose.connect(
   "mongodb://test123:test123@ds024548.mlab.com:24548/graphql-express-react",
-  { useNewUrlParser: true }
+  { useNewUrlParser: true, useCreateIndex: true }
 );
 mongoose.connection.once("open", () => {
   console.log("Connected to database.");
