@@ -17,6 +17,6 @@ mongoose.connection.once("open", () => {
 // Make graphql api route
 app.use("/graphql", graphqlHTTP({ schema, graphiql: true }));
 // Start the server
-app.listen(3000, () => {
-  console.log("Server is running on port 3000.");
+app.listen(8000, () => {
+  console.log("Server is running on port 8000.");
 });
