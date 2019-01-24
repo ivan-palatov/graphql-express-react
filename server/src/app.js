@@ -2,6 +2,7 @@
 const express = require("express");
 const graphqlHTTP = require("express-graphql");
 const mongoose = require("mongoose");
+const cors = require("cors");
 // Import local files
 const schema = require("./schema/schema");
 // Create express app
@@ -14,6 +15,8 @@ mongoose.connect(
 mongoose.connection.once("open", () => {
   console.log("Connected to database.");
 });
+// Allow cross-origin requests
+app.use(cors());
 // Make graphql api route
 app.use("/graphql", graphqlHTTP({ schema, graphiql: true }));
 // Start the server
