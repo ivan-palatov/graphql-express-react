@@ -1,15 +1,7 @@
 import React, { Component } from "react";
-import { gql } from "apollo-boost";
 import { graphql } from "react-apollo";
 
-const getAuthorsQuery = gql`
-  {
-    authors {
-      id
-      name
-    }
-  }
-`;
+import { getAuthorsQuery } from "../queries/queries";
 
 class AddBook extends Component {
   displayAuthors() {
@@ -37,7 +29,7 @@ class AddBook extends Component {
         </div>
         <div className="field">
           <label htmlFor="author">Author:</label>
-          <select name="authorId" id="author">
+          <select required name="authorId" id="author">
             <option>Select author</option>
             {this.displayAuthors()}
           </select>
